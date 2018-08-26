@@ -1,0 +1,18 @@
+doctype html
+-
+  var data = [{"title":"トリプルトライアド"},{"title":"S/Aモブハント"},{"title":"モブハント（新生）"},{"title":"モブハント（蒼天）"},{"title":"モブハント（紅蓮）"},{"title":"道端クエスト"},{"title":"GSのミニゲーム"},{"title":"探検手帳（新生）"},{"title":"探検手帳（蒼天）"},{"title":"探検手帳（紅蓮）"},{"title":"ワインボードの謎"},{"title":"ジョブクエスト"},{"title":"蛮族クエスト"},{"title":"ギャザラー"},{"title":"クラフター"}];
+html(lang="ja")
+  include _head.pug
+  body.body.ffxiv-waittask
+    header.header
+      h1.h1 シャキまちやることリスト
+      //- img.headerKv(src="./assets/img/bg.png")
+      //.a #{data[0].title}
+    main.main
+      .contents
+        ul.cards
+          each item, index in data
+            li.card.is-active(id=`card${index}`)
+              p.card__title #{item.title}
+    footer.footer
+    script(src="./assets/js/script.js")

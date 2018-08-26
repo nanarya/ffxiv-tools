@@ -12,8 +12,10 @@ const paths = {
   "css": "./htdocs/assets/css/",
   "pug": "./htdocs_dev/pug/",
   "html": "./htdocs/",
-  "jsdev": "./htdocs_dev/js/",
-  "js": "./htdocs/assets/js/"
+  "js_dev": "./htdocs_dev/js/",
+  "js_dist": "./htdocs/assets/js/",
+  "img_dev": "./htdocs_dev/img/",
+  "img_dist": "./htdocs/assets/img/"
 }
 //setting : Stylus Options
 const stylusOptions = {
@@ -40,9 +42,13 @@ gulp.task("stylus", () => {
     .pipe(gulp.dest(paths.css));
 });
 //JS
-gulp.task('js', function() {
-    gulp.src([paths.jsdev + "**/*.js", "!" + paths.styl + "**/_*.js"])
-        .pipe(gulp.dest(paths.js));
+gulp.task('js', () => {
+    gulp.src([paths.js_dev + "**/*.js", "!" + paths.js_dev + "**/_*.js"])
+        .pipe(gulp.dest(paths.js_dist));
+});
+gulp.task('img', () => {
+    gulp.src(paths.img_dev + "**/*")
+        .pipe(gulp.dest(paths.img_dist));
 });
 
 //Browser sync
@@ -52,9 +58,12 @@ gulp.task("browser-sync", () => {
       baseDir: paths.html
     }
   });
-  gulp.watch(paths.js + "**/*.js", ["reload"]);
+
   gulp.watch(paths.html + "**/*.html", ["reload"]);
   gulp.watch(paths.css + "**/*.css", ["reload"]);
+  gulp.watch(paths.js_dist + "**/*.js", ["reload"]);
+  gulp.watch(paths.img_dist + "**/*", ["reload"]);
+
 });
 gulp.task("reload", () => {
   browserSync.reload();
@@ -64,7 +73,8 @@ gulp.task("reload", () => {
 gulp.task("watch", () => {
   gulp.watch(paths.styl + "**/*.styl", ["stylus"]);
   gulp.watch([paths.pug + "**/*.pug", "!" + paths.pug + "**/_*.pug"], ["pug"]);
-  gulp.watch(paths.js + "**/*.js", ["js"]);
+  gulp.watch(paths.js_dev + "**/*.js", ["js"]);
+  gulp.watch(paths.img_dev + "**/*", ["img"]);
 });
 
-gulp.task("default", ["browser-sync", "watch"]);
+gulp.task("default", ["browser-sync", "watch", "img"]);

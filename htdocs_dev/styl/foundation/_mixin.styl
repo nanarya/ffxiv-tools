@@ -1,0 +1,16 @@
+floatEl(floatDir = left)
+  float floatDir
+  ../
+    clearfix()
+clearfix()
+  &::after
+    content ""
+    display block
+    clear both
+
+sp()
+  @media screen and (max-width: $SP_MAX)
+    {block}
+pc()
+  @media screen and (max-width: $PC_MIN)
+    {block}
