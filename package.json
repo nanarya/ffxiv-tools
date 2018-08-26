@@ -1,0 +1,43 @@
+{
+  "name": "ffxiv-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.6",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gulp": "^3.9.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-stylus": "^2.7.0",
+    "gulp-watch": "^5.0.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "pug": "^2.0.3",
+    "style-loader": "^0.22.1",
+    "stylus": "^0.54.5",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files='./htdocs/*.html, ./htdocs/*.css'",
+    "build": "webpack",
+    "stylus": "stylus -w ./htdocs_dev.*.styl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanarya/ffxiv-tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanarya/ffxiv-tools/issues"
+  },
+  "homepage": "https://github.com/nanarya/ffxiv-tools#readme"
+}
