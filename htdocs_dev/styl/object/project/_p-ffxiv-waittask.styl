@@ -1,0 +1,29 @@
+.ffxiv-waittask
+  .card
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+    width 460px
+    //height 60px
+    margin 10px
+    padding 10px
+    border-radius 10px
+    background-color rgba(100, 100, 100, 0.4)
+    font-size 1.4rem
+    text-align center
+    vertical-align middle
+    floatEl(left)
+    +sp()
+      width 46%
+      margin 10px 2%
+    //&:hover
+      //opacity 0.7
+    &.is-active
+      background #ffc
+
+  .card__title
+    display inline-block
+    text-shadow 1px 1px 1px rgba(100, 100, 100, 0.5)
+    line-height 2em
+//  .card__memo

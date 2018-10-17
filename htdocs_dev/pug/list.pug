@@ -1,0 +1,23 @@
+doctype html
+-
+  var data = [{"title":"トリプルトライアド","reward":true,"leveling":"","description":"カード対決！目指せコンプリート！"},{"title":"S/Aモブハント","reward":true,"leveling":true,"description":"記章を集めておくと色々良いことがありますよ！"},{"title":"モブハント（新生）","reward":true,"leveling":true,"description":"〜50のレベリングに。各GCの本部にあります。"},{"title":"モブハント（蒼天）","reward":true,"leveling":true,"description":"〜60のレベリングに。イシュガルドにあります。"},{"title":"モブハント（紅蓮）","reward":true,"leveling":true,"description":"〜70のレベリング、記章集めにも。クガネにあります。"},{"title":"クエスト","reward":true,"leveling":true,"description":"山ほどあるクエストをじっくり消化できるのもこんな時ならでは。"},{"title":"GSのミニゲーム","reward":true,"leveling":"","description":"週に数回やっておくと攻略手帳が消化できて良いですよ。"},{"title":"G.A.T.E.","reward":true,"leveling":"","description":"MGPゲットのチャンス！積極的に参加しましょう！"},{"title":"探検手帳（新生）","reward":true,"leveling":true,"description":""},{"title":"探検手帳（蒼天）","reward":true,"leveling":true,"description":""},{"title":"探検手帳（紅蓮）","reward":true,"leveling":true,"description":""},{"title":"ワインボードの謎","reward":"","leveling":"","description":""},{"title":"ジョブクエスト","reward":true,"leveling":"","description":""},{"title":"蛮族クエスト","reward":true,"leveling":true,"description":""},{"title":"ギャザラー","reward":true,"leveling":true,"description":""},{"title":"クラフター","reward":true,"leveling":true,"description":""},{"title":"ハウジング","reward":"","leveling":"","description":""},{"title":"魚手帳","reward":"","leveling":"","description":""},{"title":"山登り","reward":"","leveling":"","description":""},{"title":"F.A.T.E.","reward":true,"leveling":true,"description":""},{"title":"F.A.T.E.（ダタクの旅）","reward":true,"leveling":true,"description":""},{"title":"SS撮影","reward":"","leveling":"","description":""}];
+html(lang="ja")
+  include _head.pug
+  body.body.ffxiv-waittask
+    header.header
+      h1.h1 やることリスト
+      //- img.headerKv(src="./assets/img/bg.png")
+      //.a #{data[0].title}
+    main.main
+      .contents
+        ul.cards
+          each item, index in data
+            li.card.is-active(id=`card${index}`)
+              p.card__title #{item.title}
+              form.card__memo(action="cgi-bin/formmail.cgi" method="post")
+                | memo<br>
+                textarea(name="kanso" rows="4" cols="40") ここに感想を記入してください。
+                br
+                input(type="submit" value="送信")
+    footer.footer
+    script(src="./assets/js/script.js")

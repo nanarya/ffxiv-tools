@@ -1,11 +1,11 @@
 doctype html
 -
-  var data = [{"title":"トリプルトライアド"},{"title":"S/Aモブハント"},{"title":"モブハント（新生）"},{"title":"モブハント（蒼天）"},{"title":"モブハント（紅蓮）"},{"title":"道端クエスト"},{"title":"GSのミニゲーム"},{"title":"探検手帳（新生）"},{"title":"探検手帳（蒼天）"},{"title":"探検手帳（紅蓮）"},{"title":"ワインボードの謎"},{"title":"ジョブクエスト"},{"title":"蛮族クエスト"},{"title":"ギャザラー"},{"title":"クラフター"}];
+  var data = [{"no":1,"title":"トリプルトライアド","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"トリプルトライアドで新しいカードを1枚ゲットする"},{"no":2,"title":"S/Aモブハント","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"SモブまたはAモブをハントする"},{"no":3,"title":"モブハント","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"モブハントをする"},{"no":4,"title":"クエスト","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"クエストを3つ消火する"},{"no":5,"title":"G.A.T.E.","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"G.A.T.E.に3回参加する"},{"no":6,"title":"探検手帳（新生）","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"探検手帳（新生）を1つクリアする"},{"no":7,"title":"探検手帳（蒼天）","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"探検手帳（蒼天）を2つクリアする"},{"no":8,"title":"探検手帳（紅蓮）","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"探検手帳（紅蓮）を2つクリアする"},{"no":9,"title":"蛮族クエスト","job-battle":true,"job-gather":true,"job-craft":true,"job-all":"","quest":"蛮族クエストを3つクリアする"},{"no":10,"title":"魚手帳","job-battle":"","job-gather":true,"job-craft":"","job-all":"","quest":"釣り上げたことのない魚を1種類釣り上げる"},{"no":11,"title":"ハウジング","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"部屋の模様替えをする"},{"no":12,"title":"F.A.T.E.（ダタクの旅）","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"アジムステップの14連F.A.T.E.をクリアする"},{"no":13,"title":"F.A.T.E.（アチーブメント）","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"アチーブメントがもらえるF.A.T.E.をクリアする"},{"no":14,"title":"SS撮影","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"とっておきのSSを1枚撮影してアップロードする"},{"no":15,"title":"キャラメイク","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"髪型を変える"},{"no":16,"title":"木人を叩く","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"3分間頑張って叩こう"},{"no":17,"title":"レベリング（バトル）","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"バトルジョブのレベルを1つ上げる"},{"no":18,"title":"レベリング（ギャザクラ）","job-battle":"","job-gather":true,"job-craft":true,"job-all":"","quest":"ギャザクラのレベルを1つ上げる"},{"no":19,"title":"ディープダンジョン","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"ディープダンジョンに挑戦する（死者の宮殿/アメノミハシラ）"},{"no":20,"title":"エウレカ","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"エレメンタルレベルを1つ上げる"},{"no":21,"title":"クロの空想帳","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"クロの空想帳をクリアする"},{"no":22,"title":"グランドカンパニー納品","job-battle":"","job-gather":true,"job-craft":true,"job-all":"","quest":"グランドカンパニー納品を終わらせる"},{"no":23,"title":"HUD","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"HUDの調整をする"},{"no":24,"title":"ファッションチェック","job-battle":"","job-gather":"","job-craft":"","job-all":true,"quest":"ファッションチェックで合格点をもらう"},{"no":25,"title":"アイテム分解","job-battle":"","job-gather":"","job-craft":true,"job-all":"","quest":"アイテム分解のレベルを5上げる"},{"no":26,"title":"宝の地図","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"アクアポリスまたはウズネアカナルに挑戦する"},{"no":27,"title":"装備更新（バトル）","job-battle":true,"job-gather":"","job-craft":"","job-all":"","quest":"バトルジョブの装備を1箇所以上更新する"},{"no":28,"title":"装備更新（ギャザクラ）","job-battle":"","job-gather":true,"job-craft":true,"job-all":"","quest":"ギャザクラの装備を1箇所以上更新する"},{"no":29,"title":"レシピ追加","job-battle":"","job-gather":"","job-craft":"","job-all":"","quest":"クラフターで製作可能なレシピを1つ以上増やす"}];
 html(lang="ja")
   include _head.pug
-  body.body.ffxiv-waittask
+  body.body.ffxiv-bingo
     header.header
-      h1.h1 シャキまちやることリスト
+      h1 おひげクエスト
       //- img.headerKv(src="./assets/img/bg.png")
       //.a #{data[0].title}
     main.main
@@ -14,5 +14,10 @@ html(lang="ja")
           each item, index in data
             li.card.is-active(id=`card${index}`)
               p.card__title #{item.title}
+              form.card__memo(action="cgi-bin/formmail.cgi" method="post")
+                | memo<br>
+                textarea(name="kanso" rows="4" cols="40") ここに感想を記入してください。
+                br
+                input(type="submit" value="送信")
     footer.footer
     script(src="./assets/js/script.js")

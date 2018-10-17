@@ -26,7 +26,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files='./htdocs/*.html, ./htdocs/*.css'",
+    "startold": "browser-sync start --server --files='./htdocs/*.html, ./htdocs/*.css'",
+    "start": "gulp",
     "build": "webpack",
     "stylus": "stylus -w ./htdocs_dev.*.styl"
   },
